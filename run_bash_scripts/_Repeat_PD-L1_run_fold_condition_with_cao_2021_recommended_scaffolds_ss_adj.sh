@@ -1,0 +1,3 @@
+#!/bin/bash
+source activate SE3nv
+CUDA_VISIBLE_DEVICES=1 nohup python /home/wjy/Software/RFdiffusion/scripts/run_inference.py inference.input_pdb=1.pdb inference.output_prefix=./fold_cond 'ppi.hotspot_res=[A19,A21,A72,A82,A84,A86]' scaffoldguided.scaffoldguided=True scaffoldguided.target_pdb=True scaffoldguided.target_path=./1.pdb scaffoldguided.scaffold_dir=/data3/Workshop/twq/RFdiffusion_root/scaffolds/cao2021_recommended_adj_secstruct/ scaffoldguided.mask_loops=False scaffoldguided.scaffold_list=./select.txt denoiser.noise_scale_ca=0.5 denoiser.noise_scale_frame=0.5 inference.num_designs=1000 diffuser.T=20  > log & 

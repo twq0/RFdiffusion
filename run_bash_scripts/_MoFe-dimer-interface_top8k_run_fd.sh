@@ -1,0 +1,3 @@
+#!/bin/bash
+source activate SE3nv
+CUDA_VISIBLE_DEVICES=0 nohup python /home/wjy/Software/RFdiffusion/scripts/run_inference.py inference.input_pdb=../inputs/7ut8_turnover_side_0001.pdb inference.output_prefix=./top8k 'ppi.hotspot_res=[A119,A155,D634,D635,A154,D601,A182,A120,D602,A121]' scaffoldguided.scaffoldguided=True scaffoldguided.target_pdb=True scaffoldguided.target_path=../inputs/7ut8_turnover_side_0001.pdb scaffoldguided.scaffold_dir=/data3/Workshop/twq/RFdiffusion_root/scaffolds/Top8000_Hom50_TMcut50 scaffoldguided.mask_loops=True denoiser.noise_scale_ca=0.5 denoiser.noise_scale_frame=0.5 inference.num_designs=1000 diffuser.T=20  > log & 
